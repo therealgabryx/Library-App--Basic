@@ -3,23 +3,63 @@ let libri = [
         titolo: 'aaa',
         autore: 'aaa',
         prezzo: 10,
-        id: 'ID-A'
+        codice: 'ID-A'
     },
     {
         titolo: 'ccc',
         autore: 'ccc',
         prezzo: 15,
-        id: 'ID-C'
+        codice: 'ID-C'
     },
     {
         titolo: 'bbb',
         autore: 'bbb',
         prezzo: 10,
-        id: 'ID-B'
+        codice: 'ID-B'
     },
 ] 
 
 
+function eliminaLibro() {
+    const codice = document.getElementById('codice').value;
+    let indice = cercaLibroPerCodice(codice);
+
+    console.log(libri)
+    
+    let removed = libri.splice(indice, 1);
+    console.log('rimosso libro: ' + JSON.stringify(removed))
+
+    aggiornaLibri();
+    calcolaPrezzoMedio();
+
+    console.log(libri)
+
+    /* let tit = cercaLibroPerTitolo('aaa')   */
+}
+
+function cercaLibroPerCodice(codice) {
+    let indice = -1
+    
+    libri.forEach(libro => {
+        if (libro.codice == codice) {
+            indice = libri.indexOf(libro);
+        }
+    })
+
+    return indice;
+}
+
+function cercaLibroPerTitolo(titolo) {
+    let indice = -1
+    
+    libri.forEach(libro => {
+        if (libro.titolo == titolo) {
+            indice = libri.indexOf(libro);
+        }
+    })
+
+    return indice;
+}
 
 function aggiornaLibri() {
     const visualizzaLibri = document.getElementById('visualizzaLibri');
@@ -40,7 +80,7 @@ function aggiornaLibri() {
                             </div>
                             <div class="info">
                                 <h4>ID:</h4>
-                                <p>${libri[i].id}</p>
+                                <p>${libri[i].codice}</p>
                             </div>
                             <div class="info">
                                 <h4>prezzo: </h4>

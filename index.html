@@ -34,6 +34,15 @@
 
     <div class="cancellaLibro">
         <h2>Cancella Libro</h2>
+        <form name="cancellaLibro" onsubmit="return false">
+            <div>
+                <label for="codice">Codice</label>
+                <input type="text" id="codice">
+            </div>
+            <div>
+                <button type="submit" onclick="eliminaLibro()">Cancella</button>
+            </div>
+        </form>
     </div> 
 
     <div class="modificaPrezzo">
@@ -45,7 +54,7 @@
     </div> 
 
     <div class="mediaPrezzi">
-        <h2>Prezzo Medio: </h2><h2 id="prezzoMedio">37.5€</h2>
+        <h2>Prezzo Medio: </h2><h2 id="prezzoMedio"></h2>
     </div> 
 
     <div class="visualizzaLibri"> 
