@@ -19,6 +19,36 @@ let libri = [
     },
 ] 
 
+function aggiungiUnLibro() {
+    const titolo = document.getElementById('aggiungiTitolo');
+    const autore = document.getElementById('aggiungiAutore');
+    const prezzo = document.getElementById('aggiungiPrezzo');
+
+    if (titolo.value != '' && autore.value != '' && prezzo.value > 0) { 
+
+        libri.push({ 
+            titolo: titolo.value,
+            autore: autore.value,
+            prezzo: prezzo.value,
+            codice: new Date().getTime() 
+        }) 
+
+        aggiornaLibri();
+        calcolaPrezzoMedio();
+
+        const aggFeedback = document.getElementById('aggFeedback');
+        aggFeedback.innerText = 'Libro aggiunto!'
+
+        titolo.value = ''
+        autore.value = ''
+        prezzo.value = ''
+
+    } else { 
+        const aggFeedback = document.getElementById('aggFeedback');
+        aggFeedback.innerText = 'Controlla le informazioni inserite!'
+    } 
+} 
+
 function visualizzaPrezzoDaTitolo() {
     const titolo = document.getElementById('vediTitolo').value;
     let indice = cercaLibroPerTitolo(titolo);
@@ -29,10 +59,12 @@ function visualizzaPrezzoDaTitolo() {
 
         console.log(indice)
 
-        // print: book(i).price 
+        const viewFeedback = document.getElementById('viewFeedback');
+        viewFeedback.innerText = `Il libro '${libri[indice].titolo}' costa ${libri[indice].prezzo}€`
 
     } else {
-        // print: libro 404
+        const viewFeedback = document.getElementById('viewFeedback');
+        viewFeedback.innerText = 'Libro non trovato!'
     }
 }
 
@@ -42,16 +74,24 @@ function cambiaPrezzo() {
 
     if (indice >= 0) {
         const nuovoPrezzo = document.getElementById('nuovoPrezzo').value;
-    
-        libri[indice].prezzo = nuovoPrezzo;
 
-        aggiornaLibri();
-        calcolaPrezzoMedio();
+        if (nuovoPrezzo != '') {
+            libri[indice].prezzo = nuovoPrezzo;
 
-        // print: aggornato libro(ID)
+            aggiornaLibri();
+            calcolaPrezzoMedio();
+
+            const modFeedback = document.getElementById('modFeedback');
+            modFeedback.innerText = 'Prezzo aggiornato!'
+
+        } else {
+            const modFeedback = document.getElementById('modFeedback');
+            modFeedback.innerText = 'Controlla le informazioni inserite!'
+        }
 
     } else {
-        // print: libro 404
+        const modFeedback = document.getElementById('modFeedback');
+        modFeedback.innerText = 'Libro non trovato!'
     }
 }
 
@@ -66,10 +106,12 @@ function eliminaLibro() {
         aggiornaLibri();
         calcolaPrezzoMedio();
 
-        // print: rimosso libro(ID)
+        const delFeedback = document.getElementById('delFeedback');
+        delFeedback.innerText = 'Libro eliminato!'
 
     } else {
-        // print: libro 404
+        const delFeedback = document.getElementById('delFeedback');
+        delFeedback.innerText = 'Libro non trovato!'
     }
 }
 

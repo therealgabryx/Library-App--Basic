@@ -12,28 +12,33 @@
     <h1>Library App - Basic</h1>
 
     <div class="aggiungiLibro">
-        <h2>Aggiungi Libro</h4>
+        <h2>Aggiungi Libro</h2>
+        <p>Inserisci le informazioni richieste per aggiungere un libro alla libreria.</p>
         <form name="aggiungiLibro" onsubmit="return false">
             <div>
                 <label for="titolo">Titolo</label>
-                <input type="text" id="titolo">
+                <input type="text" id="aggiungiTitolo">
             </div>
-            <div>
+            <div> 
                 <label for="autore">Autore</label>
-                <input type="text" id="autore">
+                <input type="text" id="aggiungiAutore">
             </div>
             <div>
                 <label for="prezzo">Prezzo</label>
-                <input type="number" id="prezzo">
+                <input type="number" id="aggiungiPrezzo">
             </div>
             <div>
-                <button type="submit" onclick="aggiornaLibri()">Aggiungi</button>
+                <button type="submit" onclick="aggiungiUnLibro()">Aggiungi</button>
+            </div>
+            <div>
+                <p id="aggFeedback"></p>
             </div>
         </form>
     </div>
 
     <div class="cancellaLibro">
         <h2>Cancella Libro</h2>
+        <p>Inserisci un codice e premi il bottone per eliminare il libro corrispondente dalla libreria.</p>
         <form name="cancellaLibro" onsubmit="return false">
             <div>
                 <label for="codice">Codice</label>
@@ -42,11 +47,15 @@
             <div>
                 <button type="submit" onclick="eliminaLibro()">Cancella</button>
             </div>
+            <div>
+                <p id="delFeedback"></p>
+            </div>
         </form>
     </div> 
 
     <div class="modificaPrezzo">
         <h2>Modifica Prezzo</h2>
+        <p>Inserisci un codice e premi il bottone per modificare il prezzo del libro corrispondente nella libreria.</p>
         <form name="modificaPrezzo" onsubmit="return false">
             <div>
                 <label for="codice">Codice</label>
@@ -59,11 +68,15 @@
             <div>
                 <button type="submit" onclick="cambiaPrezzo()">Modifica</button>
             </div>
+            <div>
+                <p id="modFeedback"></p>
+            </div>
         </form>
     </div>
 
     <div class="visualizzaPrezzo">
         <h2>Visualizza Prezzo</h2>
+        <p>Inserisci un titolo e premi il bottone per visualizzare il prezzo di un libro nella libreria.</p>
         <form name="cancellaLibro" onsubmit="return false">
             <div>
                 <label for="vediTitolo">Titolo</label>
@@ -72,15 +85,19 @@
             <div>
                 <button type="submit" onclick="visualizzaPrezzoDaTitolo()">Visualizza</button>
             </div>
-        </form>
+            <div>
+                <p id="viewFeedback"></p>
+            </div>
+        </form> 
     </div> 
 
     <div class="mediaPrezzi">
-        <h2>Prezzo Medio: </h2><h2 id="prezzoMedio"></h2>
+        <h2>Prezzo Medio: </h2><h2 id="prezzoMedio">-</h2>
     </div> 
 
     <div class="visualizzaLibri"> 
         <h2>Visualizza Libri</h2>
+        <button onclick="aggiornaLibri()">Aggiorna</button>
         <div id="visualizzaLibri"></div>
     </div> 
 
