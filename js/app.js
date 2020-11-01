@@ -75,7 +75,7 @@ function cambiaPrezzo() {
     if (indice >= 0) {
         const nuovoPrezzo = document.getElementById('nuovoPrezzo').value;
 
-        if (nuovoPrezzo != '') {
+        if (nuovoPrezzo > 0) {
             libri[indice].prezzo = nuovoPrezzo;
 
             aggiornaLibri();
