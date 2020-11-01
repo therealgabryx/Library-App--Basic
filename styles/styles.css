@@ -16,3 +16,14 @@ body {
 .libro .info h4, .libro .info p {
     margin: 0.2rem;
 }
+
+.mediaPrezzi {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.mediaPrezzi h2:last-of-type {
+    margin-left: 1rem;
+
+}

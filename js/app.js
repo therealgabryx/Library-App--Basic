@@ -8,7 +8,7 @@ let libri = [
     {
         titolo: 'ccc',
         autore: 'ccc',
-        prezzo: 10,
+        prezzo: 15,
         id: 'ID-C'
     },
     {
@@ -19,9 +19,13 @@ let libri = [
     },
 ] 
 
+
+
 function aggiornaLibri() {
     const visualizzaLibri = document.getElementById('visualizzaLibri');
+
     ordinaLibri();
+    calcolaPrezzoMedio()
 
     let libriOutput = '';
     for(let i = 0; i < libri.length; i++ ) {
@@ -57,4 +61,17 @@ function ordinaLibri() {
             return -1
         }
     }) 
+} 
+
+function calcolaPrezzoMedio() {
+    const prezzoMedio = document.getElementById('prezzoMedio');
+
+    let totale = 0;
+    for (let i = 0; i < libri.length; i++) {
+        totale += libri[i].prezzo;
+    }
+
+    let media = parseInt(totale/libri.length);
+
+    prezzoMedio.innerText = `${media}€`
 }
