@@ -19,22 +19,45 @@ let libri = [
     },
 ] 
 
-
-function eliminaLibro() {
-    const codice = document.getElementById('codice').value;
+function cambiaPrezzo() {
+    const codice = document.getElementById('modificaCodice').value;
     let indice = cercaLibroPerCodice(codice);
 
-    console.log(libri)
+    if (indice >= 0) {
+        const nuovoPrezzo = document.getElementById('nuovoPrezzo').value;
+
+        console.log(libri)
+      
+        libri[indice].prezzo = nuovoPrezzo;
+
+        aggiornaLibri();
+        calcolaPrezzoMedio();
+
+        console.log(libri)
+
+        // print: aggornato libro(ID)
+
+    } else {
+        // print: libro 404
+    }
+}
+
+function eliminaLibro() {
+    const codice = document.getElementById('eliminaCodice').value;
+    let indice = cercaLibroPerCodice(codice);
     
-    let removed = libri.splice(indice, 1);
-    console.log('rimosso libro: ' + JSON.stringify(removed))
+    if(indice >= 0) {
+        let removed = libri.splice(indice, 1);
+        console.log('rimosso libro: ' + JSON.stringify(removed))
 
-    aggiornaLibri();
-    calcolaPrezzoMedio();
+        aggiornaLibri();
+        calcolaPrezzoMedio();
 
-    console.log(libri)
+        // print: rimosso libro(ID)
 
-    /* let tit = cercaLibroPerTitolo('aaa')   */
+    } else {
+        // print: libro 404
+    }
 }
 
 function cercaLibroPerCodice(codice) {
@@ -84,7 +107,7 @@ function aggiornaLibri() {
                             </div>
                             <div class="info">
                                 <h4>prezzo: </h4>
-                                <p>${libri[i].prezzo}</p>
+                                <p>${libri[i].prezzo}€</p>
                             </div>
                         </div>`
     }
@@ -108,7 +131,7 @@ function calcolaPrezzoMedio() {
 
     let totale = 0;
     for (let i = 0; i < libri.length; i++) {
-        totale += libri[i].prezzo;
+        totale += parseInt(libri[i].prezzo);
     }
 
     let media = parseInt(totale/libri.length);
