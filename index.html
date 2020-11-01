@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library App - Basic</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/styles.css">
     <script src="./js/app.js"></script>
 </head>
@@ -28,7 +28,7 @@
                 <input type="number" id="aggiungiPrezzo">
             </div>
             <div>
-                <button type="submit" onclick="aggiungiUnLibro()">Aggiungi</button>
+                <button type="submit" onclick="aggiungiUnLibro()"><span>Aggiungi</span></button>
             </div>
             <div>
                 <p id="aggFeedback"></p>
@@ -45,7 +45,7 @@
                 <input type="text" id="eliminaCodice">
             </div>
             <div>
-                <button type="submit" onclick="eliminaLibro()">Cancella</button>
+                <button type="submit" onclick="eliminaLibro()"><span>Cancella</span></button>
             </div>
             <div>
                 <p id="delFeedback"></p>
@@ -66,7 +66,7 @@
                 <input type="number" id="nuovoPrezzo">
             </div>
             <div>
-                <button type="submit" onclick="cambiaPrezzo()">Modifica</button>
+                <button type="submit" onclick="cambiaPrezzo()"><span>Modifica</span></button>
             </div>
             <div>
                 <p id="modFeedback"></p>
@@ -83,7 +83,7 @@
                 <input type="text" id="vediTitolo">
             </div>
             <div>
-                <button type="submit" onclick="visualizzaPrezzoDaTitolo()">Visualizza</button>
+                <button type="submit" onclick="visualizzaPrezzoDaTitolo()"><span>Visualizza</span></button>
             </div>
             <div>
                 <p id="viewFeedback"></p>
@@ -97,7 +97,7 @@
 
     <div class="visualizzaLibri"> 
         <h2>Visualizza Libri</h2>
-        <button onclick="aggiornaLibri()">Aggiorna</button>
+        <button onclick="aggiornaLibri()"><span>Aggiorna</span></button>
         <div id="visualizzaLibri"></div>
     </div> 
 

@@ -1,7 +1,36 @@
 body {
     font-family: 'Montserrat', sans-serif;
     font-size: 62.5%;
+    margin: 2rem;
+    background-color: whitesmoke;
 } 
+
+button {
+    background-color: #0085d9;
+    border: none;
+    color: white;
+    padding: 0.2rem;
+    width: 50%;
+    min-width: 5rem;
+    max-width: 10rem;
+    border-radius: 0.2rem;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+button span {
+    font-size: 0.75rem;
+}
+
+input {
+    border: 1px solid rgb(233, 233, 233);
+    border-radius: 0.1rem;
+    min-width: 5rem;
+    max-width: 15rem;
+}
 
 .libro {
     margin: 1rem 0;
@@ -26,4 +55,18 @@ body {
 .mediaPrezzi h2:last-of-type {
     margin-left: 1rem;
 
+}
+
+div form div {
+    margin: 1rem 0;
+    /* background-color: aquamarine; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 25rem;
+}
+
+div form div label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
 }
