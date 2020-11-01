@@ -19,21 +19,34 @@ let libri = [
     },
 ] 
 
+function visualizzaPrezzoDaTitolo() {
+    const titolo = document.getElementById('vediTitolo').value;
+    let indice = cercaLibroPerTitolo(titolo);
+
+    console.log(indice)
+
+    if (indice >= 0) {
+
+        console.log(indice)
+
+        // print: book(i).price 
+
+    } else {
+        // print: libro 404
+    }
+}
+
 function cambiaPrezzo() {
     const codice = document.getElementById('modificaCodice').value;
     let indice = cercaLibroPerCodice(codice);
 
     if (indice >= 0) {
         const nuovoPrezzo = document.getElementById('nuovoPrezzo').value;
-
-        console.log(libri)
-      
+    
         libri[indice].prezzo = nuovoPrezzo;
 
         aggiornaLibri();
         calcolaPrezzoMedio();
-
-        console.log(libri)
 
         // print: aggornato libro(ID)
 
